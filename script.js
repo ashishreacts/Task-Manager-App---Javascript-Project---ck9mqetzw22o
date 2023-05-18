@@ -109,10 +109,3 @@ function creareTodo() {
   todo_modal.classList.remove("active");
   overlay.classList.remove("active");
 }
-
-const closeBtn = document.querySelectorAll(".close");
-closeBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.parentElement.style.display = "none";
-  });
-});
