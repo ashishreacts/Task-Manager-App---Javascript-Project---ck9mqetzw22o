@@ -5,38 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager App</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- MODAL -->
+    <!-- Modal -->
+    <div class="modal" id="todo_modal">
+      <div class="header">
+        <div class="title">Add Task</div>
+        <button class="btn close-modal">&times;</button>
+      </div>
+      <div class="body">
+        <input type="text" id="todo-input" placeholder="Type of Work" />
 
-    <!-- TOdo List -->
-    <div class="container">
-      <div class="todo-list">
-        <div class="status">
-          <h1>OPEN</h1>
-          <div id="open" draggable="true"></div>
-          <div>
-            <input id="addTask" type="text" name="Task" />
-            <button id="add_btn">+</button>
-          </div>
-        </div>
-        <div class="status">
-          <h1>IN PROGRESS</h1>
-          <div id="inProgress" draggable="true"></div>
-        </div>
-        <div class="status">
-          <h1>IN REVIEW</h1>
-          <div id="inReview" draggable="true"></div>
-        </div>
-        <div class="status">
-          <h1>DONE</h1>
-          <div id="done" draggable="true"></div>
-        </div>
+        <input type="submit" value="Add Todo" id="todo-submit" />
       </div>
     </div>
 
+    <!-- Todo -->
+    <div class="container">
+      <div class="columns" id="open_todo">
+        <h1>OPEN</h1>
+        <button id="add_btn" data-target-modal="#todo_modal">+ Add Task</button>
+      </div>
+
+      <div class="columns">
+        <h1>IN PROGRESS</h1>
+      </div>
+
+      <div class="columns">
+        <h1>IN REVIEW</h1>
+      </div>
+
+      <div class="columns">
+        <h1>DONE</h1>
+      </div>
+    </div>
+
+    <div id="overlay"></div>
     <script src="script.js"></script>
   </body>
 </html>
-
