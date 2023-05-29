@@ -79,10 +79,13 @@ window.onclick = (event) => {
 
 const todoSubmit = document.getElementById("todo-submit");
 
-todoSubmit.addEventListener("click", creareTodo);
-function creareTodo() {
+todoSubmit.addEventListener("click", createTodo);
+function createTodo() {
   const todoDiv = document.createElement("div");
   const inputValue = document.getElementById("todo-input").value;
+  if (inputValue.length < 3) {
+    return;
+  }
   const text = document.createTextNode(inputValue);
 
   todoDiv.appendChild(text);
@@ -98,14 +101,14 @@ function creareTodo() {
 
   open_todo.appendChild(todoDiv);
 
-  span.addEventListener("click", () => {
-    span.parentElement.style.display = "none";
-  });
-
   todoDiv.addEventListener("dragstart", dragStart);
   todoDiv.addEventListener("dragend", dragEnd);
 
   document.getElementById("todo-input").value = "";
   todo_modal.classList.remove("active");
   overlay.classList.remove("active");
+
+  span.addEventListener("click", () => {
+    span.parentElement.style.display = "none";
+  });
 }
